@@ -166,7 +166,8 @@ MIT License – Feel free to use, modify, and learn from this project.
 
 ---
 
-**Built with** by a Senior iOS Engineer 
+**Built with** by Ruthvik , a Senior iOS Engineer from Houston, Texas.
+
 
 
 ---
