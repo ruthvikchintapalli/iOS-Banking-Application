@@ -1,5 +1,5 @@
 # SecureBank – A Modern iOS Banking App (SwiftUI Demo)
-*Built with SwiftUI, Combine, Keychain, and Offline-First Architecture – Inspired by Chase & Wells Fargo*
+*Built with SwiftUI, Combine, Keychain, and Offline-First Architecture
 
 [![Swift 6](https://img.shields.io/badge/Swift-6-orange.svg)](https://swift.org)
 [![iOS 17+](https://img.shields.io/badge/iOS-17%2B-blue.svg)](https://developer.apple.com/ios/)
