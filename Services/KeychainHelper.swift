@@ -10,7 +10,7 @@ class KeychainHelper {
         SecItemDelete(query as CFDictionary)
         SecItemAdd(query as CFDictionary, nil)
     }
-
+    
     func get(_ key: String) -> Data? {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
@@ -21,7 +21,7 @@ class KeychainHelper {
         SecItemCopyMatching(query as CFDictionary, &result)
         return result as? Data
     }
-
+    
     func delete(_ key: String) {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
