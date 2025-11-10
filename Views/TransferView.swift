@@ -2,9 +2,7 @@ import SwiftUI
 
 struct TransferView: View {
     @Environment(\.dismiss) var dismiss
-    @Environment(\.managedObjectContext) private var viewContext
     @StateObject private var dataService = BankDataService()
-    @StateObject private var firebaseService = FirebaseService(context: PersistenceController.shared.container.viewContext)
     @State private var amount = ""
     @State private var toAccount = ""
     @State private var showSuccess = false
@@ -25,12 +23,10 @@ struct TransferView: View {
                     Button("Send Money") {
                         let amt = Double(amount) ?? 0
                         if amt > 0 && !toAccount.isEmpty {
-                            firebaseService.sendTransfer(amount: amt, toEmail: toAccount) { success in
-                                if success {
-                                    showSuccess = true
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                        dismiss()
-                                    }
+                            dataService.sendTransfer(amount: amt, to: toAccount) { _ in
+                                showSuccess = true
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                    dismiss()
                                 }
                             }
                         }
