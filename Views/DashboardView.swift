@@ -2,8 +2,6 @@ import SwiftUI
 
 struct DashboardView: View {
     @StateObject private var dataService = BankDataService()
-    @Environment(\.managedObjectContext) private var viewContext
-    @StateObject private var firebaseService = FirebaseService(context: PersistenceController.shared.container.viewContext)
     
     var body: some View {
         NavigationView {
@@ -26,8 +24,10 @@ struct DashboardView: View {
                 .padding(.top)
             }
             .navigationTitle("Accounts")
-            .refreshable { firebaseService.fetchAccounts { dataService.accounts = $0 } }
-            .onAppear { firebaseService.fetchAccounts { dataService.accounts = $0 } }
+            .refreshable {
+                // Simulate refresh
+                try? await Task.sleep(nanoseconds: 1_000_000_000)
+            }
         }
     }
 }
