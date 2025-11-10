@@ -14,10 +14,3 @@ struct Transaction: Identifiable, Codable {
     let date: Date
     let isPending: Bool
 }
-
-struct Contact: Identifiable, Codable {
-    let id = UUID()
-    let name: String
-    let email: String
-    let phone: String
-}
